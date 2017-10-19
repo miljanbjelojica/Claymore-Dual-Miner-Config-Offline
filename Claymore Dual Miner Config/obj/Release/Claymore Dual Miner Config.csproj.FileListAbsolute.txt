@@ -1,0 +1,15 @@
+C:\Users\user\Documents\C Sharp Projects\Claymore Dual Miner Config\Claymore Dual Miner Config\bin\Release\Claymore Dual Miner Config.exe.config
+C:\Users\user\Documents\C Sharp Projects\Claymore Dual Miner Config\Claymore Dual Miner Config\bin\Release\Claymore Dual Miner Config.exe
+C:\Users\user\Documents\C Sharp Projects\Claymore Dual Miner Config\Claymore Dual Miner Config\bin\Release\Claymore Dual Miner Config.pdb
+C:\Users\user\Documents\C Sharp Projects\Claymore Dual Miner Config\Claymore Dual Miner Config\obj\Release\Interop.IWshRuntimeLibrary.dll
+C:\Users\user\Documents\C Sharp Projects\Claymore Dual Miner Config\Claymore Dual Miner Config\obj\Release\Claymore Dual Miner Config.csproj.ResolveComReference.cache
+C:\Users\user\Documents\C Sharp Projects\Claymore Dual Miner Config\Claymore Dual Miner Config\obj\Release\MainWindow.g.cs
+C:\Users\user\Documents\C Sharp Projects\Claymore Dual Miner Config\Claymore Dual Miner Config\obj\Release\App.g.cs
+C:\Users\user\Documents\C Sharp Projects\Claymore Dual Miner Config\Claymore Dual Miner Config\obj\Release\Claymore Dual Miner Config_MarkupCompile.cache
+C:\Users\user\Documents\C Sharp Projects\Claymore Dual Miner Config\Claymore Dual Miner Config\obj\Release\Claymore Dual Miner Config_MarkupCompile.lref
+C:\Users\user\Documents\C Sharp Projects\Claymore Dual Miner Config\Claymore Dual Miner Config\obj\Release\MainWindow.baml
+C:\Users\user\Documents\C Sharp Projects\Claymore Dual Miner Config\Claymore Dual Miner Config\obj\Release\Claymore Dual Miner Config.g.resources
+C:\Users\user\Documents\C Sharp Projects\Claymore Dual Miner Config\Claymore Dual Miner Config\obj\Release\Claymore_Dual_Miner_Config.Properties.Resources.resources
+C:\Users\user\Documents\C Sharp Projects\Claymore Dual Miner Config\Claymore Dual Miner Config\obj\Release\Claymore Dual Miner Config.csproj.GenerateResource.Cache
+C:\Users\user\Documents\C Sharp Projects\Claymore Dual Miner Config\Claymore Dual Miner Config\obj\Release\Claymore Dual Miner Config.exe
+C:\Users\user\Documents\C Sharp Projects\Claymore Dual Miner Config\Claymore Dual Miner Config\obj\Release\Claymore Dual Miner Config.pdb
