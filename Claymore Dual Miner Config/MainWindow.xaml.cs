@@ -41,7 +41,10 @@ namespace Claymore_Dual_Miner_Config
             string claymoreTempLoc = tempFolder + @"\Claymore_s_Dual_Ethereum_Decred_Siacoin_Lbry_Pascal_AMD_NVIDIA_GPU_Miner_v10_0.zip";
             string claymorePath = localPath + @"\Claymore_s_Dual_Ethereum_Decred_Siacoin_Lbry_Pascal_AMD_NVIDIA_GPU_Miner_v10_0";
 
+            if (IsValidAddress(TxtMainAddress.Text) == true)
+            {
 
+            }
             OutputText createFiles = new OutputText();
 
             // UNZIPS CLAYMORE'S FILES TO LOCATION OF THIS EXECUTABLE
@@ -151,6 +154,22 @@ namespace Claymore_Dual_Miner_Config
                 return portNumber;
             }
 
+        }
+
+        bool IsValidAddress(string mainAddress, string altAddress)
+        {
+            bool valid;            
+
+            if (mainAddress.Length == 40 & mainAddress.Contains("0x"))
+            {
+                valid = true;
+            } else
+            {
+                valid = false;
+                MessageBox.Show("Address is not valid", "Address Error");
+            }
+
+            return valid;
         }
 
         private void RdSIA_Checked(object sender, RoutedEventArgs e)
