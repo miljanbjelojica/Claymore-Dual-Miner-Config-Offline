@@ -41,28 +41,31 @@ namespace Claymore_Dual_Miner_Config
             string claymoreTempLoc = tempFolder + @"\Claymore_s_Dual_Ethereum_Decred_Siacoin_Lbry_Pascal_AMD_NVIDIA_GPU_Miner_v10_0.zip";
             string claymorePath = localPath + @"\Claymore_s_Dual_Ethereum_Decred_Siacoin_Lbry_Pascal_AMD_NVIDIA_GPU_Miner_v10_0";
 
-            if (IsValidAddress(TxtMainAddress.Text) == true)
-            {
-
-            }
+            
             OutputText createFiles = new OutputText();
+            Validate CheckValidation = new Validate();
 
-            // UNZIPS CLAYMORE'S FILES TO LOCATION OF THIS EXECUTABLE
-            if (System.IO.File.Exists(claymorePath + @"\Readme!!!.txt") == false)
-            {
-                System.IO.File.WriteAllBytes(claymoreTempLoc, Properties.Resources.Claymore_s_Dual_Ethereum_Decred_Siacoin_Lbry_Pascal_AMD_NVIDIA_GPU_Miner_v10_0);
-                ZipFile.ExtractToDirectory(claymoreTempLoc, claymorePath);
-            }
+            
+            
+            
 
            if (RdETH.IsChecked == true | RdETC.IsChecked == true)
             {
-                createFiles.StartBatch(claymorePath, CoinType(), altCoinType(), port(), altPort(), TxtMainAddress.Text, txtAltAddress.Text, TxtName.Text, TxtEmail.Text);
-                createFiles.ePoolTextFile(claymorePath, CoinType(), port(), TxtMainAddress.Text, TxtName.Text, TxtEmail.Text);
+                if (CheckValidation.CheckETHAddress(TxtMainAddress.Text) == true)
+                {
+                    ExtractFiles(claymoreTempLoc, claymorePath);
+                    createFiles.StartBatch(claymorePath, CoinType(), altCoinType(), port(), altPort(), TxtMainAddress.Text, txtAltAddress.Text, TxtName.Text, TxtEmail.Text);
+                    createFiles.ePoolTextFile(claymorePath, CoinType(), port(), TxtMainAddress.Text, TxtName.Text, TxtEmail.Text);
+                }                
             }
 
            if (RdSIA.IsChecked == true)
             {
-                createFiles.dPoolTextFileSIA(claymorePath, altPort(), txtAltAddress.Text, TxtMainAddress.Text, TxtName.Text, TxtEmail.Text);
+                if (CheckValidation.CheckSIAAddress(txtAltAddress.Text) == true)
+                {
+                    ExtractFiles(claymoreTempLoc, claymorePath);
+                    createFiles.dPoolTextFileSIA(claymorePath, altPort(), txtAltAddress.Text, TxtMainAddress.Text, TxtName.Text, TxtEmail.Text);
+                }                
             }
 
            if (RdPASC.IsChecked == true)
@@ -138,6 +141,7 @@ namespace Claymore_Dual_Miner_Config
                 return portNumber;
             }
 
+            // RETURNS PORT NUMBER
             string altPort()
             {
                 string portNumber = "";
@@ -153,24 +157,19 @@ namespace Claymore_Dual_Miner_Config
                 }
                 return portNumber;
             }
-
         }
 
-        bool IsValidAddress(string mainAddress, string altAddress)
+        // UNZIPS CLAYMORE'S FILES TO LOCATION OF THIS EXECUTABLE
+        private void ExtractFiles(string claymoreTempLoc, string claymorePath)
         {
-            bool valid;            
-
-            if (mainAddress.Length == 40 & mainAddress.Contains("0x"))
+            if (System.IO.File.Exists(claymorePath + @"\Readme!!!.txt") == false)
             {
-                valid = true;
-            } else
-            {
-                valid = false;
-                MessageBox.Show("Address is not valid", "Address Error");
+                System.IO.File.WriteAllBytes(claymoreTempLoc, Properties.Resources.Claymore_s_Dual_Ethereum_Decred_Siacoin_Lbry_Pascal_AMD_NVIDIA_GPU_Miner_v10_0);
+                ZipFile.ExtractToDirectory(claymoreTempLoc, claymorePath);
             }
-
-            return valid;
         }
+
+        
 
         private void RdSIA_Checked(object sender, RoutedEventArgs e)
         {

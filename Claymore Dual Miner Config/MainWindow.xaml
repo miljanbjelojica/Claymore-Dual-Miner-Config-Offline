@@ -21,7 +21,7 @@
         <TextBox x:Name="txtAltAddress" HorizontalAlignment="Left" Height="37" TextWrapping="Wrap" VerticalAlignment="Top" Width="327" Margin="10,213,0,0"/>
         <Label Content="SIA or PASC Address" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,182,0,0" FontWeight="Bold"/>
         <RadioButton x:Name="RdSIA" Content="SIA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,255,0,0" GroupName="AltCoin" Checked="RdSIA_Checked" IsChecked="True"/>
-        <RadioButton x:Name="RdPASC" Content="PASC" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="92,255,0,0" GroupName="AltCoin" Checked="RdPASC_Checked"/>
+        <RadioButton x:Name="RdPASC" Content="PASC" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="92,255,0,0" GroupName="AltCoin" Checked="RdPASC_Checked" IsEnabled="False"/>
         <RadioButton x:Name="RdNone" Content="None" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="193,255,0,0" GroupName="AltCoin" IsChecked="True" Checked="RdNone_Checked"/>
         <Label Content="Use this format YYYYMMDD" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,57,0,0" Background="#00000000" Foreground="Red"/>
 
