@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.IO;
 using System.IO.Compression;
 using IWshRuntimeLibrary;
+using System.Net;
 
 namespace Claymore_Dual_Miner_Config
 {
@@ -40,12 +41,18 @@ namespace Claymore_Dual_Miner_Config
             string tempFolder = Environment.GetEnvironmentVariable("temp");
             string claymoreTempLoc = tempFolder + @"\Claymore_s_Dual_Ethereum_Decred_Siacoin_Lbry_Pascal_AMD_NVIDIA_GPU_Miner_v10_0.zip";
             string claymorePath = localPath + @"\Claymore_s_Dual_Ethereum_Decred_Siacoin_Lbry_Pascal_AMD_NVIDIA_GPU_Miner_v10_0";
+            string claymoreURL = "https://github.com/nanopool/Claymore-Dual-Miner/releases/download/v10.0/Claymore.s.Dual.Ethereum.Decred_Siacoin_Lbry_Pascal.AMD.NVIDIA.GPU.Miner.v10.0.zip";
 
-            
+
             OutputText createFiles = new OutputText();
             Validate CheckValidation = new Validate();
 
-            
+            //***************************************************************************
+            //using (WebClient client = new WebClient())
+            //{
+            //    client.DownloadFile(claymoreURL, tempFolder);
+            //}
+            //***************************************************************************
             
             
 
