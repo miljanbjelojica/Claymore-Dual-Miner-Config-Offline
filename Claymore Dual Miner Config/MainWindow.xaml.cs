@@ -47,20 +47,12 @@ namespace Claymore_Dual_Miner_Config
             OutputText createFiles = new OutputText();
             Validate CheckValidation = new Validate();
 
-            //***************************************************************************
-            //using (WebClient client = new WebClient())
-            //{
-            //    client.DownloadFile(claymoreURL, tempFolder);
-            //}
-            //***************************************************************************
-            
-            
 
-           if (RdETH.IsChecked == true | RdETC.IsChecked == true)
+            if (RdETH.IsChecked == true | RdETC.IsChecked == true)
             {
                 if (CheckValidation.CheckETHAddress(TxtMainAddress.Text) == true)
                 {
-                    ExtractFiles(claymoreTempLoc, claymorePath);
+                    ExtractFiles(claymoreTempLoc, claymorePath, claymoreURL, tempFolder);
                     createFiles.StartBatch(claymorePath, CoinType(), altCoinType(), port(), altPort(), TxtMainAddress.Text, txtAltAddress.Text, TxtName.Text, TxtEmail.Text);
                     createFiles.ePoolTextFile(claymorePath, CoinType(), port(), TxtMainAddress.Text, TxtName.Text, TxtEmail.Text);
                 }                
@@ -69,16 +61,15 @@ namespace Claymore_Dual_Miner_Config
            if (RdSIA.IsChecked == true)
             {
                 if (CheckValidation.CheckSIAAddress(txtAltAddress.Text) == true)
-                {
-                    ExtractFiles(claymoreTempLoc, claymorePath);
+                {                    
                     createFiles.dPoolTextFileSIA(claymorePath, altPort(), txtAltAddress.Text, TxtMainAddress.Text, TxtName.Text, TxtEmail.Text);
                 }                
             }
 
-           if (RdPASC.IsChecked == true)
-            {
-                createFiles.dPoolPASC(claymorePath, altCoinType(),altPort(), TxtMainAddress.Text, TxtName.Text, TxtEmail.Text);
-            }
+           //if (RdPASC.IsChecked == true)
+           // {
+           //     createFiles.dPoolPASC(claymorePath, altCoinType(),altPort(), TxtMainAddress.Text, TxtName.Text, TxtEmail.Text);
+           // }
 
            // AUTO START ENABLED BY DEFAULT
             if (ChkboxAutoStart.IsChecked == true)
@@ -167,11 +158,15 @@ namespace Claymore_Dual_Miner_Config
         }
 
         // UNZIPS CLAYMORE'S FILES TO LOCATION OF THIS EXECUTABLE
-        private void ExtractFiles(string claymoreTempLoc, string claymorePath)
+        private void ExtractFiles(string claymoreTempLoc, string claymorePath, string claymoreURL, string tempFolder)
         {
             if (System.IO.File.Exists(claymorePath + @"\Readme!!!.txt") == false)
             {
-                System.IO.File.WriteAllBytes(claymoreTempLoc, Properties.Resources.Claymore_s_Dual_Ethereum_Decred_Siacoin_Lbry_Pascal_AMD_NVIDIA_GPU_Miner_v10_0);
+                using (WebClient client = new WebClient())
+                {
+                    client.DownloadFile(claymoreURL, tempFolder);
+                }
+                //System.IO.File.WriteAllBytes(claymoreTempLoc, Properties.Resources.Claymore_s_Dual_Ethereum_Decred_Siacoin_Lbry_Pascal_AMD_NVIDIA_GPU_Miner_v10_0);
                 ZipFile.ExtractToDirectory(claymoreTempLoc, claymorePath);
             }
         }
