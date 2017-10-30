@@ -40,5 +40,21 @@ namespace Claymore_Dual_Miner_Config
             }
             return valid;
         }
+
+        //VALIDATES PASC ADDRESS
+        public bool CheckPASCAddress(string altAddress)
+        {
+            bool valid = false;
+
+            if (altAddress.Length == 25 & altAddress.Contains("Poloniex"))
+            {
+                valid = true;
+            }
+            else
+            {
+                MessageBox.Show("PASC address is no valid", "Address Error");
+            }
+            return valid;
+        }
     }
 }
